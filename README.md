@@ -48,7 +48,7 @@ More learning materials in our WeChat account.
 
 - RanShareCo
 
-<div><img src="demo/微信图片_20220322181553.jpg" height="480" /></div>
+<div align="center"><img src="demo/微信图片_20220322181553.jpg" height="480" /></div>
 
 IF there are any other questions, please contract email:
 

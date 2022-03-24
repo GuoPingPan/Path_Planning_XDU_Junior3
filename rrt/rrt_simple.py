@@ -146,13 +146,12 @@ class RRT:
                 # display the process
                 self.clock.tick(fps) # 这里频率可调，来显示刷新快慢
                 pygame.display.flip()
-                print(1)
 
             self.quit()
 
 
     def need_modify(self,position):
-        print(self.end_node)
+        # print(self.end_node)
         node = self.end_node.father
         while node is not self.root and np.linalg.norm(node.pose - position) != 0:
             node = node.father
@@ -166,12 +165,12 @@ class RRT:
                 cut.append(node)
                 for child in node.childs:
                     bfs.append(child)
-            print(cut)
+            # print(cut)
             node = cut.pop(0)
             node.father.remove_child(node)
 
             for node in cut:
-                print(node)
+                # print(node)
                 self.closed_list.remove(node)
                 self.block_list[node.pose[0]][node.pose[1]] = 0
                 pygame.draw.rect(self.window, free_color,(node.pose[1] * self.grid, node.pose[0] * self.grid, self.grid, self.grid))
@@ -211,7 +210,7 @@ class RRT:
                     pygame.display.flip()
                     if quit:
                         if self.need_modify(position):
-                            print('yes')
+                            # print('yes')
                             pygame.display.flip()
                             quit = False
 
@@ -296,7 +295,7 @@ class RRT:
 
 if __name__ == '__main__':
     map_size = [20, 20]
-    rrt = RRT(map_size[0], map_size[1], np.array([0, 0],dtype=int), np.array([15, 8],dtype=int),epsilon=0.3)  # 18,6
+    rrt = RRT(map_size[0], map_size[1], np.array([0, 0],dtype=int), np.array([15, 10],dtype=int),epsilon=0.3)  # 18,6
     # block_pose = np.random.randint(0, 2, size=map_size, dtype=int)
     block_pose = np.array([[0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0],
                            [0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0],
