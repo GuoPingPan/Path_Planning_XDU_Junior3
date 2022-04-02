@@ -5,6 +5,7 @@ This project is about a Path Planning System with classical algorithm and visual
 
 - RRT
 <div align="center"><img src="demo/rrt.gif" width="200" ></div>
+
 - RRT-Star
 <div align="center"><img src="demo/rrt-star.gif" width="200" ></div>
 
